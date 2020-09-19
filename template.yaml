@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Simple QR decoder
+Globals:
+    Api:
+        Cors:
+            AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+            AllowOrigin: "'*'"
+        BinaryMediaTypes:
+            - image~1png
+Resources:
+    QRdecoderFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: target/qrdecoder-1.0.jar
+            Handler: xyz.aoiro27go.qr.QRdecode4lambda::handleRequest
+            Runtime: java8
+            Timeout: 15
+            Events:
+                QRdecodeRequest:
+                    Type: Api
+                    Properties:
+                        Path: /
+                        Method: post
+Outputs:
+    QRdecodeEndpoint:
+      Description: "API Gateway endpoint URL for Prod stage for function"
+      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+    QRdecoderFunctionARN:
+      Description: "Lambda Function ARN"
+      Value: !GetAtt QRdecoderFunction.Arn
+    QRdecoderFunctioniamRole:
+      Description: "Implicit IAM Role created for Hello World function"
+      Value: !GetAtt QRdecoderFunctionRole.Arn
