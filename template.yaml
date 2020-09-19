@@ -12,9 +12,9 @@ Resources:
     QRdecoderFunction:
         Type: AWS::Serverless::Function
         Properties:
-            CodeUri: target/qrdecoder-1.0.jar
+            CodeUri: qrdecoder
             Handler: xyz.aoiro27go.qr.QRdecode4lambda::handleRequest
-            Runtime: java8
+            Runtime: java8.al2
             Timeout: 15
             Events:
                 QRdecodeRequest:
@@ -30,5 +30,5 @@ Outputs:
       Description: "Lambda Function ARN"
       Value: !GetAtt QRdecoderFunction.Arn
     QRdecoderFunctioniamRole:
-      Description: "Implicit IAM Role created for Hello World function"
+      Description: "Implicit IAM Role created for QR decoder function"
       Value: !GetAtt QRdecoderFunctionRole.Arn
