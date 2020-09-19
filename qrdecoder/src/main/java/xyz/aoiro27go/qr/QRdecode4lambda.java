@@ -39,7 +39,7 @@ public class QRdecode4lambda {
 		LuminanceSource source = new BufferedImageLuminanceSource(image);
 		BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
 
-		// QRコードをデコード
+		// QRコードを復号
 		Reader reader = new MultiFormatReader();
 		Result result = reader.decode(bitmap);
 
