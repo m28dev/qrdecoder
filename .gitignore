@@ -1,0 +1,22 @@
+# Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+.classpath
+.project
+
+# Maven
+target/
+dependency-reduced-pom.xml
+
+# AWS SAM CLI
+packaged.yaml
