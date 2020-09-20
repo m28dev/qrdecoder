@@ -9,3 +9,6 @@ sam deploy --guided
 ```
 $ curl -X POST -H 'Content-type: image/png' --data-binary "@QR_510236.png" <QRdecodeEndpoint>/
 ```
+
+## 動作デモ
+https://m28dev.github.io/qrdecoder/
