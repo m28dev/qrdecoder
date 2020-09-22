@@ -27,6 +27,9 @@
             event.preventDefault();
 
             const qrcodeImg = document.getElementById('qrcode').files[0];
+            const decodedArea = document.getElementById('decoded');
+
+            decodedArea.textContent = 'Now Loading...';
 
             fetch('https://8vz3fjw7wh.execute-api.ap-northeast-1.amazonaws.com/Prod/', {
                 method: 'post',
@@ -35,9 +38,8 @@
             }).then(res => {
                 return res.json();
             }).then(json => {
-                document.getElementById('decoded').textContent = json.contents;
+                decodedArea.textContent = json.contents;
             }).catch(err => {
-                // document.getElementById('decoded').textContent = err;
                 console.log(err);
             })
         });
