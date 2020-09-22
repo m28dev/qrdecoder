@@ -21,4 +21,4 @@ $ curl -X POST -H 'Content-type: image/png' --data-binary "@QR_510236.png" <QRde
 https://m28dev.github.io/qrdecoder/
 
 ### 確認用QRコード
-![確認用QRコード](QR_510236.png)
+![QRコードの画像](QR_510236.png)
